@@ -27,16 +27,25 @@ public class Pathmaker : MonoBehaviour {
 
     public Transform Paths;
 
-	void FixedUpdate () {
+    public void Start()
+    {
+        if (PathmakerManager.instance.MyCurrentSphere == null)
+        {
+            //Debug.Log("No Ball!");
+            PathmakerManager.instance.MyCurrentSphere = this.gameObject; 
+        }
+    }
+
+    void FixedUpdate () {
         if (counter < 50)
         {
             float RandomNum;
             RandomNum = Random.Range(0f, 1f);
-            if (RandomNum < 0.1f)
+            if (RandomNum < 0.15f)
             {
                 PathmakerSpherePrefab.eulerAngles += PathmakerSpherePrefab.up * 90;
             }
-            else if (RandomNum >= 0.1f && RandomNum <= 0.2f)
+            else if (RandomNum >= 0.15f && RandomNum <= 0.3f)
             {
                 PathmakerSpherePrefab.eulerAngles -= PathmakerSpherePrefab.up * 90;
             }
@@ -54,7 +63,7 @@ public class Pathmaker : MonoBehaviour {
             float myRayDist = 5f;
             if (Physics.Raycast(myRay, myRayDist))
             {
-                Debug.Log("Raycast returns true!");
+                //Debug.Log("Raycast returns true!");
                 isGrounded = true;
             }
             else
@@ -84,28 +93,6 @@ public class Pathmaker : MonoBehaviour {
 }
 
 // MORE STEPS BELOW!!!........
-
-
-
-
-// STEP 3: =====================================================================================
-// implement, test, and stabilize the system
-
-//	IMPLEMENT AND TEST:
-//	- save your scene!!! the code could potentially be infinite / exponential, and crash Unity
-//	- put Pathmaker.cs on a sphere, configure all the prefabs in the Inspector, and test it to make sure it works
-//	STABILIZE: 
-//	- code it so that all the Pathmakers can only spawn a grand total of 500 tiles in the entire world; how would you do that?
-//	- (hint: declare a "public static int" and have each Pathmaker check this "globalTileCount", somewhere in your code? if there are already enough tiles, then maybe the Pathmaker could Destroy my game object
-
-
-
-// STEP 4: ======================================================================================
-// tune your values...
-
-// a. how long should a pathmaker live? etc.
-// b. how would you tune the probabilities to generate lots of long hallways? does it work?
-// c. tweak all the probabilities that you want... what % chance is there for a pathmaker to make a pathmaker? is that too high or too low?
 
 
 

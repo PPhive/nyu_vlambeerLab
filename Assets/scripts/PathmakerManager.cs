@@ -6,7 +6,8 @@ public class PathmakerManager : MonoBehaviour
 {
     //I want to limit and detect the amount of balls on field
     public static PathmakerManager instance;
-    public int[] SphereCounter; 
+    public GameObject MySphere;
+    public GameObject MyCurrentSphere;
 
     void Awake()
     {
@@ -14,15 +15,18 @@ public class PathmakerManager : MonoBehaviour
     }
     void Start()
     {
-        if (Pathmanager.Instance.PathCounter < Pathmanager.Instance.PathCounterMax)
-        {
-            
-        }
+            Instantiate(MySphere);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        {
+            if (Pathmanager.Instance.PathCounter < Pathmanager.Instance.PathCounterMax &&
+                MyCurrentSphere == null)
+            {
+                Instantiate(MySphere);
+            }
+        }
     }
 }
