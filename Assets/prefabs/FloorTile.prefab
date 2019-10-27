@@ -78,6 +78,10 @@ MonoBehaviour:
   - {fileID: 6030490806940390667}
   - {fileID: 8069323378652805770}
   Wall: {fileID: 9210053647374225962, guid: 3f48b2eb3478f5646a012e6570b8482f, type: 3}
+  Brick:
+  - {fileID: 5129130301082328149, guid: add190297e73a734193e2fbf30f81025, type: 3}
+  - {fileID: 1681047366914157447, guid: 59c1570d8d40d4441a6507bf7ba9f6c4, type: 3}
+  - {fileID: 2575481122329646311, guid: f2ab9bf37446bc94a9a4832cc8fdfbd7, type: 3}
 --- !u!23 &23480304006748552
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -95,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe0a717eee4feac4ba467fd619d6f893, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -36,6 +36,14 @@ public class Pathmaker : MonoBehaviour {
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     void FixedUpdate () {
         if (counter < 50)
         {
@@ -54,6 +62,18 @@ public class Pathmaker : MonoBehaviour {
                 Instantiate(PathmakerSpherePrefab);
             }
 
+            if (Pathmanager.Instance.PathCounter < Pathmanager.Instance.PathCounterMax)
+            {
+                if (isGrounded == false)
+                {
+                    Instantiate(FloorPrefab, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation, Paths);
+                    Pathmanager.Instance.PathCounter++;
+                }
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
 
             transform.position += transform.forward * 5;
 
@@ -70,19 +90,7 @@ public class Pathmaker : MonoBehaviour {
             {
                 isGrounded = false;
             }
-
-            if (Pathmanager.Instance.PathCounter < Pathmanager.Instance.PathCounterMax)
-            {
-                if (isGrounded == false)
-                {
-                    Instantiate(FloorPrefab, new Vector3(transform.position.x, 0, transform.position.z), transform.rotation, Paths);
-                    Pathmanager.Instance.PathCounter++;
-                }
-            }
-            else
-            {
-                Destroy(this.gameObject);
-            }
+ 
         }
         else
         {

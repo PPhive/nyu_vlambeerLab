@@ -28,5 +28,10 @@ public class PathmakerManager : MonoBehaviour
                 Instantiate(MySphere);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Start();
+        }
     }
 }
